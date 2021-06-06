@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>welcome clients</title>
+	
+</h:head>
+
+<script type="text/javascript">
+    //<![CDATA[
+    function start() {
+        PF('statusDialog').show();
+    }
+
+    function stop() {
+        PF('statusDialog').hide();
+    }
+    //]]>
+</script>
+
+<div class="card">
+    <h:form>
+        <p:growl id="messages"/>
+        
+<br></br>
+
+        <p:menubar>
+        
+
+            
+            <p:menuitem value="Sinister Declaration Space" icon="pi pi-fw pi-plus" outcome="/pages/client/declarerSinistre">
+                                  
+               </p:menuitem>
+               
+               <p:menuitem value="discover offers" icon="pi pi-fw pi-plus" outcome="/pages/client/products">
+                                  
+               </p:menuitem>
+               
+               <p:menuitem value="claims space" icon="pi pi-fw pi-plus" outcome="/pages/client/contracts">
+                                  
+               </p:menuitem>
+               
+               
+               
+           
+            
+
+            <p:divider layout="vertical"/>
+
+
+           
+                    <f:facet name="options">
+             <p:commandButton action="#{sinisterController.doLogout()}" value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"></p:commandButton>
+             
+            </f:facet>
+            
+        </p:menubar>
+     
+    </h:form>
+</div>
+
+<div class="card" align="center" >
+    <h5>check this recording to better know about the sinister declaration steps!</h5>
+    <p:audio value="/resources/enr/marhbe.mp3"
+             controls="true"
+             onplay="console.log('OGG Started Playing')"
+             onpause="console.log('OGG Stopped Playing')">
+        
+    </p:audio>
+</div>
+<div class="card" align="center">
+    <p:steps>
+        <p:menuitem value="Sinister Declaration"/>
+        <p:menuitem value="Send Justifications"/>
+        <p:menuitem value="treating sinister"/>
+        <p:menuitem value="Response in 24->48 hours"/>
+    </p:steps>
+</div>
+<br></br>
+<div class="carddd" align="center">
+    <h5>Why Gardian Angels!</h5>
+    <p:video value="/resources/videos/presentation.mp4"
+             controls="true"
+             width="820"
+             height="450"
+             onplay="console.log('WEBM Started Playing')"
+             onpause="console.log('WEBM Stopped Playing')">
+
+    </p:video>
+</div>
+
+
+
+</html>

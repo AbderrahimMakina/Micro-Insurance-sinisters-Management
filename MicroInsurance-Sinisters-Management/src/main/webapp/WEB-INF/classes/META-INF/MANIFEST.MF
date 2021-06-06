@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: TP-entities
+Implementation-Version: 1.0
+Built-By: abder
+Implementation-Vendor-Id: tn.esprit.esponline
+Build-Jdk: 1.8.0_202
+Implementation-URL: https://spring.io/projects/spring-boot/TP-entities
+Created-By: Maven Integration for Eclipse
+

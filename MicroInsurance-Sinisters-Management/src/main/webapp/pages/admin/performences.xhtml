@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>statistics And performences </title>
+	
+</h:head>
+
+
+<h:body>
+<style type="text/css">
+    commandButton.ui-button {
+        margin-right: .5rem;
+    }
+</style>
+<div class="card">
+  
+
+    <p:commandButton type="button" value="RatioSinSurvenu" styleClass="ui-button-outlined" onclick="PF('dlg4').show()" />  
+    <p:commandButton type="button" value="CalculRatioRejetDemIndemn" styleClass="ui-button-outlined" onclick="PF('dlg5').show()"  />
+    <p:commandButton type="button" value="CalculCoutMoyen" styleClass="ui-button-outlined" onclick="PF('dlg6').show()"  />
+    <p:commandButton type="button" value="calculSinistraliéPortfeuille" styleClass="ui-button-outlined" onclick="PF('dlg7').show()"  />
+
+</div>
+
+<p:dialog header="CalculRatioSinSurvenu" widgetVar="dlg4" minHeight="40" width="350" showEffect="fade" minimizable="true" maximizable="true">
+    <p class="p-m-0">        "#{sinisterController.CalculRatioSinSurvenu()}"          </p>
+</p:dialog>
+<p:dialog header="CalculRatioRejetDemIndemn" widgetVar="dlg5" minHeight="40" width="350" showEffect="fade" minimizable="true" maximizable="true">
+    <p class="p-m-0">        "#{sinisterController.CalculRatioRejetDemIndemn( )}"          </p>
+</p:dialog>
+<p:dialog header="CalculCoutMoyen" widgetVar="dlg6" minHeight="40" width="350" showEffect="fade" minimizable="true" maximizable="true">
+    <p class="p-m-0">        "#{sinisterController.CalculCoutMoyen( )}"          </p>
+</p:dialog>
+<p:dialog header="calculSinistraliéPortfeuille" widgetVar="dlg7" minHeight="40" width="350" showEffect="fade" minimizable="true" maximizable="true">
+    <p class="p-m-0">        "#{sinisterController.calculSinistraliéPortfeuille()}"          </p>
+</p:dialog>
+
+     
+     <p:splitter style="height: 300px" styleClass="p-mb-5">
+        <p:splitterPanel styleClass="p-d-flex p-ai-center p-jc-center">
+            <p:barChart model="#{chartJsView.barModel}" style="width: 20%; height: 50px;"/>
+        </p:splitterPanel>
+	 </p:splitter>
+	 
+
+	
+	<div class="kk" align="left">
+    <p:donutChart model="#{chartJsView.donutModel}" align="left" style="width: 100%; height: 500px;"/>
+</div>
+
+
+     
+</h:body>
+
+
+
+
+</html>

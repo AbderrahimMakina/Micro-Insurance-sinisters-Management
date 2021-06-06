@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>declaration sinistre</title>
+	
+</h:head>
+
+<h:body>
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title></title>
+	
+</h:head>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous"></link>
+
+<div class="container">
+		<h2>Declarer Sinistre </h2>
+		<hr>
+		
+
+<h:panelGroup columns="2">
+<h:form>
+
+<tr><td><h:outputText value="sinister date"></h:outputText></td>
+<td><h:inputText value="#{sinisterController.sDate}" placeholder="sinister date" class="form-control mb-4 col-4"><f:convertDateTime pattern="dd-MM-yyyy" /></h:inputText></td></tr>
+
+<tr><td><h:outputText value="sinister Description"></h:outputText></td>
+<td><p:textEditor widgetVar="editor2" value="#{sinisterController.sDescription}" height="300" placeholder="Enter your content">
+            <f:facet name="toolbar">
+             <span class="ql-formats">
+                <button class="ql-bold"></button>
+                <button class="ql-italic"></button>
+                <button class="ql-underline"></button>
+                <button class="ql-strike"></button>
+            </span>
+                <span class="ql-formats">
+                <select class="ql-font"></select>
+                <select class="ql-size"></select>
+            </span>
+            </f:facet>
+        </p:textEditor></td></tr>
+
+<tr><td><h:outputText value="sinister Place"></h:outputText></td>
+<td><h:inputText value="#{sinisterController.sPlace}" placeholder="Sinister Place" class="form-control mb-4 col-4"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="sinister Type"></h:outputText></td>
+<td><h:inputText value="#{sinisterController.sType}" placeholder="Sinister Type" class="form-control mb-4 col-4"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="contract id"></h:outputText></td>
+
+<td><h:inputText value="#{sinisterController.contId}" placeholder="Agency Name" class="form-control mb-4 col-4"></h:inputText></td></tr>
+
+
+ <p:growl id="growl" showDetail="true" />
+        <p:growl id="growl-sticky" for="sticky-key" showDetail="true" sticky="true" />
+        
+        <tr><td colspan="2"> <h:commandButton value="declarer sinistre"
+action="#{sinisterController.decalarerSinistre()}" update="growl" class="btn btn-success col-2" /></td></tr>
+   
+   
+   <br></br>
+ 
+
+</h:form>
+</h:panelGroup> 
+</hr>
+
+
+
+<div align="center">
+<p:link outcome="/pages/client/declarerSinistre" value="Back to sinister List"></p:link>
+</div>
+</div>
+
+</h:body>
+</html>

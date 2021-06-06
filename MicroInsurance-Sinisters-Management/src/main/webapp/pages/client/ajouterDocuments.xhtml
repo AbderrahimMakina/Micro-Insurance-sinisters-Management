@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>ajouter document justificatives</title>
+	
+</h:head>
+
+<h:body>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous"></link>
+
+<div class="container">
+		<h2>Send Justifications </h2>
+		<hr>
+		
+	<div class="card">
+    <h:form id="formId">
+
+        <p:fileUpload id="uploader1" mode="advanced" styleClass="p-d-block p-mb-5"/>
+
+        <p:outputPanel id="tooltipsPanel">
+
+            <p:tooltip id="uploaderChooseFileBeforeUploadToolTip"
+                       widgetVar="chooseWV" position="top"
+                       for="@(#formId\:uploader1 > .ui-fileupload-buttonbar > .ui-fileupload-choose)"
+                       value="Choose button tooltip"/>
+
+            <p:tooltip id="uploaderUploadButtonToolTip"
+                       position="right"
+                       for="@(#formId\:uploader1 > .ui-fileupload-buttonbar > .ui-fileupload-upload)"
+                       value="Upload button tooltip" showEffect="clip"
+                       hideEffect="explode"/>
+
+            <p:tooltip id="uploaderCancelButtonToolTip"
+                       position="bottom"
+                       for="@(#formId\:uploader1 > .ui-fileupload-buttonbar > .ui-fileupload-cancel)"
+                       value="Cancel button tooltip"/>
+
+        </p:outputPanel>
+		
+		
+		   </h:form>
+</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+<h:panelGroup columns="2">
+<h:form>
+
+<tr><td><h:outputText value="Sinister Id"></h:outputText></td>
+<td><h:inputText value="#{sinisterController.idSinAjustifier}" placeholder="Document Label" class="form-control mb-4 col-4"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Document Name"></h:outputText></td>
+<td><h:inputText value="#{sinisterController.docName}" placeholder="Document Name" class="form-control mb-4 col-4"></h:inputText></td></tr>
+
+<tr><td><h:outputText value="Document Label"></h:outputText></td>
+<td><h:inputText value="#{sinisterController.docLabel}" placeholder="Document Label" class="form-control mb-4 col-4"></h:inputText></td></tr>
+
+<p:growl id="growl" showDetail="true" />
+        <p:growl id="growl-sticky" for="sticky-key" showDetail="true" sticky="true" />
+
+        
+        <tr><td colspan="2"> <h:commandButton value="ajouter justificatif"
+action="#{sinisterController.ajouterJustificatif()}" update="growl" class="btn btn-success col-2" /></td></tr>
+   
+   
+   <br></br>
+       
+
+</h:form>
+</h:panelGroup> 
+</hr>
+
+
+<div align="right">
+    <p:imageSwitch effect="shuffle">
+        <ui:repeat value="#{imagesView.images}" var="image" width="520"
+             height="350">
+            <p:graphicImage name="/images/performanaces/#{image}"/>
+        </ui:repeat>
+    </p:imageSwitch>
+</div>
+
+
+
+
+<div align="center">
+<p:link outcome="/pages/client/declarerSinistre" value="Back to sinister List"></p:link>
+</div>
+</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+</h:body>
+</html>

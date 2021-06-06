@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>espace sinistres</title>
+	
+</h:head>
+
+<script type="text/javascript">
+    //<![CDATA[
+    function start() {
+        PF('statusDialog').show();
+    }
+
+    function stop() {
+        PF('statusDialog').hide();
+    }
+    //]]>
+</script>
+
+<div class="card">
+    <h:form>
+        <p:growl id="messages"/>
+
+        <p:menubar>
+        
+
+            
+            <p:menuitem value="Declarer sinister" icon="pi pi-fw pi-plus" outcome="/pages/client/declarationSinFor">
+                                  
+               </p:menuitem>
+               
+           
+            
+
+            <p:divider layout="vertical"/>
+
+
+            <f:facet name="options">
+            
+                <span class="filter-container ui-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <p:inputText id="globalFilter" onkeyup="PF('dtAgencies').filter()" placeholder="Search"/>
+                    </span>
+                    </f:facet>
+                    <f:facet name="options">
+             <p:commandButton action="#{sinisterController.doLogout()}" value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"></p:commandButton>
+             
+            </f:facet>
+            
+        </p:menubar>
+     
+    </h:form>
+</div>
+
+
+<div class="card">
+    <h:form id="form">
+    
+    
+    <p:growl id="messages" showDetail="true"/>
+    
+        <p:dataTable id="dt-sinisters" widgetVar="dtSinisters" value="#{sinisterController.sinisters}" var="sinister" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                     paginator="true" rows="6" styleClass="p-mt-2">>
+        
+        
+             <p:column headerText="Sinister identification">
+                <h:outputText value="#{sinister.id}" />
+            </p:column>
+            <p:column headerText="Sinister Date">
+                <h:outputText value="#{sinister.sinisterDate}" />
+            </p:column>
+            <p:column headerText="Sinister declaration Date">
+                <h:outputText value="#{sinister.declarationDate}" />
+            </p:column>
+            <p:column headerText="Sinister Description">
+                <h:outputText value="#{sinister.sinisterDescription}" />
+            </p:column>
+            <p:column headerText="sinister Place">
+                <h:outputText value="#{sinister.sinisterPlace}" />
+            </p:column>
+            <p:column headerText="sinisterType">
+                <h:outputText value="#{sinister.sinisterType}" />
+            </p:column>
+            <p:column headerText="sinister Status">
+                <h:outputText value="#{sinister.sinisterStatus}" />
+            </p:column>
+            <p:column headerText="Justification" exportable="false">
+            
+               <p:link outcome="/pages/client/ajouterDocuments" value="Send Justifications"></p:link>
+                
+            </p:column>
+            
+             
+        </p:dataTable>
+        
+        
+
+    </h:form>
+</div>
+ 
+           
+
+</html>

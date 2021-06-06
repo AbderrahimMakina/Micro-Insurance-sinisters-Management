@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>welcome Admin</title>
+	
+</h:head>
+
+
+<script type="text/javascript">
+    //<![CDATA[
+    function start() {
+        PF('statusDialog').show();
+    }
+
+    function stop() {
+        PF('statusDialog').hide();
+    }
+    //]]>
+</script>
+
+<div class="card">
+    <h:form>
+        <p:growl id="messages"/>
+
+        <p:menubar>
+        
+
+               
+               <p:menuitem value="Manage Accounts" icon="pi pi-fw pi-plus" outcome="/pages/admin/payments">
+                                  
+               </p:menuitem>
+                <p:menuitem value="Performences and statistics" icon="pi pi-fw pi-plus" outcome="/pages/admin/performences">
+                                  
+               </p:menuitem>
+                <p:menuitem value="Manage Claims" icon="pi pi-fw pi-plus" outcome="/pages/admin/payments">
+                                  
+               </p:menuitem>
+               
+             
+           
+            
+
+            <p:divider layout="vertical"/>
+
+
+           
+                    <f:facet name="options">
+             <p:commandButton action="#{sinisterController.doLogout()}" value="Logout" icon="pi pi-fw pi-sign-out" styleClass="ui-button-info"></p:commandButton>
+             
+            </f:facet>
+            
+        </p:menubar>
+        <br></br> <br></br> 
+        	<div class="kk" align="left">
+    <p:donutChart model="#{chartJsView.donutModel}" align="left" style="width: 100%; height: 500px;"/>
+</div>
+   
+     
+    </h:form>
+</div>
+
+
+
+</html>
